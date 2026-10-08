@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>أذكاري | أذكار الصباح والمساء</title>
+<meta name="description" content="موقع أذكار الصباح والمساء الصحيحة بمصادرها، مع مسبحة إلكترونية وتحكم بحجم الخط والوضع الليلي." />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@dawod/thmanyah-font-web/index.css" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<header class="topbar">
+  <div class="container topbar-inner">
+    <div class="brand">
+      <div class="logo">☾</div>
+      <div>
+        <h1>أذكاري</h1>
+        <p>أذكار الصباح والمساء الصحيحة</p>
+      </div>
+    </div>
+    <div class="controls">
+      <div class="font-controls" role="group" aria-label="التحكم بحجم الخط">
+        <button id="fontDecrease" title="تصغير الخط" aria-label="تصغير الخط">أ−</button>
+        <span id="fontScaleLabel">100%</span>
+        <button id="fontIncrease" title="تكبير الخط" aria-label="تكبير الخط">أ+</button>
+      </div>
+      <button id="themeToggle" class="theme-btn" aria-label="تبديل الثيم">
+        <svg id="iconMoon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg id="iconSun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <span id="themeLabel">ليلي</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<section class="hero container">
+  <div class="hero-card">
+    <div class="hero-text">
+      <span class="badge" id="timeBadge">وقت الصباح</span>
+      <h2>ابدأ يومك واختمه بذكر الله</h2>
+      <p>جميع الأذكار صحيحة وموثقة بمصادرها من كتب السنة وحصن المسلم. اضغط على زر التسبيح لكل ذكر متكرر حتى يكتمل.</p>
+      <div class="hero-actions">
+        <button class="tab active" data-tab="morning">أذكار الصباح</button>
+        <button class="tab" data-tab="evening">أذكار المساء</button>
+      </div>
+    </div>
+    <div class="hero-progress">
+      <div class="ring-wrap">
+        <svg viewBox="0 0 120 120" class="ring">
+          <circle cx="60" cy="60" r="52" class="ring-bg"/>
+          <circle id="ringFg" cx="60" cy="60" r="52" class="ring-fg"/>
+        </svg>
+        <div class="ring-center">
+          <strong id="progressPct">0%</strong>
+          <span id="progressCount">0 / 0</span>
+        </div>
+      </div>
+      <button id="resetAll" class="ghost-btn">إعادة التصفير</button>
+    </div>
+  </div>
+</section>
+
+<main class="container">
+  <div class="search-row">
+    <input id="search" type="search" placeholder="ابحث في الأذكار..." aria-label="بحث" />
+    <span id="totalLabel"></span>
+  </div>
+  <div id="cards" class="cards"></div>
+
+  <section class="sources-note">
+    <h3>منهج التوثيق</h3>
+    <p>اعتُمد في هذا الموقع على <strong>حصن المسلم</strong> للشيخ سعيد القحطاني، مع تخريج كل حديث من أصله: صحيح البخاري وصحيح مسلم وسنن أبي داود والترمذي والنسائي ومسند أحمد، وتصحيحات الشيخ الألباني. وقت الصباح من الفجر إلى الشروق (ويمتد إلى الظهر للمعذور)، ووقت المساء من العصر إلى المغرب (ويمتد إلى منتصف الليل).</p>
+  </section>
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <span>صُنع بحب لذكر الله — تقبّل الله منا ومنكم</span>
+    <span class="font-credit">الخط: ثمانية — Thmanyah</span>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>

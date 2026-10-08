@@ -1,0 +1,145 @@
+:root{
+  --bg:#f7f3ea;
+  --bg2:#fffdf7;
+  --card:#ffffff;
+  --ink:#1e2a26;
+  --muted:#6b7a75;
+  --line:#e8dfc9;
+  --gold:#b98a2f;
+  --gold2:#d9b96a;
+  --green:#0f766e;
+  --green-deep:#0b4f4a;
+  --shadow:0 10px 30px rgba(60,50,20,.10);
+  --radius:20px;
+  --font-scale:1;
+}
+[data-theme="dark"]{
+  --bg:#0d1513;
+  --bg2:#111c19;
+  --card:#16241f;
+  --ink:#eef4ef;
+  --muted:#9db3ab;
+  --line:#243832;
+  --gold:#d9b96a;
+  --gold2:#f0d896;
+  --green:#2dd4bf;
+  --green-deep:#14b8a6;
+  --shadow:0 10px 30px rgba(0,0,0,.45);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:
+    radial-gradient(1000px 400px at 80% -100px, rgba(217,185,106,.22), transparent 60%),
+    radial-gradient(800px 400px at 10% 0%, rgba(15,118,110,.14), transparent 60%),
+    var(--bg);
+  color:var(--ink);
+  font-family:"Thmanyah Sans", system-ui, "Segoe UI", Tahoma, sans-serif;
+  transition:background .3s,color .3s;
+  min-height:100vh;
+}
+.container{max-width:1080px;margin:0 auto;padding:0 18px}
+.topbar{
+  position:sticky;top:0;z-index:20;
+  backdrop-filter:blur(14px);
+  background:color-mix(in srgb, var(--bg2) 82%, transparent);
+  border-bottom:1px solid var(--line);
+}
+.topbar-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 18px;gap:12px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:12px}
+.logo{
+  width:48px;height:48px;border-radius:16px;display:grid;place-items:center;font-size:26px;color:#fff;
+  background:linear-gradient(135deg,var(--green-deep),var(--green));
+  box-shadow:var(--shadow);
+}
+.brand h1{margin:0;font-family:"Thmanyah Serif Display", serif;font-size:26px;line-height:1}
+.brand p{margin:4px 0 0;color:var(--muted);font-size:13px}
+.controls{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.font-controls{
+  display:flex;align-items:center;gap:8px;background:var(--card);
+  border:1px solid var(--line);border-radius:999px;padding:5px 6px;box-shadow:var(--shadow);
+}
+.font-controls button{
+  width:38px;height:32px;border-radius:999px;border:1px solid var(--line);
+  background:var(--bg2);color:var(--ink);font-family:inherit;font-weight:700;cursor:pointer;font-size:16px;
+}
+.font-controls button:hover{border-color:var(--gold);color:var(--gold)}
+#fontScaleLabel{min-width:52px;text-align:center;font-weight:700;font-size:13px;color:var(--muted)}
+.theme-btn{
+  display:flex;align-items:center;gap:8px;border-radius:999px;cursor:pointer;
+  border:1px solid var(--line);background:var(--card);color:var(--ink);
+  padding:8px 14px;font-family:inherit;font-weight:700;box-shadow:var(--shadow);
+}
+.theme-btn:hover{border-color:var(--gold)}
+.hero{margin-top:20px}
+.hero-card{
+  background:linear-gradient(135deg, color-mix(in srgb, var(--card) 92%, transparent), var(--card));
+  border:1px solid var(--line);border-radius:28px;box-shadow:var(--shadow);
+  padding:26px;display:grid;grid-template-columns:1.4fr .8fr;gap:20px;align-items:center;
+  position:relative;overflow:hidden;
+}
+.hero-card::before{
+  content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;
+  background-image:radial-gradient(color-mix(in srgb, var(--gold) 30%, transparent) 1.2px, transparent 1.2px);
+  background-size:22px 22px;
+  mask-image:linear-gradient(to left, black, transparent 60%);
+}
+.badge{display:inline-block;background:color-mix(in srgb, var(--gold) 16%, transparent);border:1px solid color-mix(in srgb, var(--gold) 40%, transparent);color:var(--gold);padding:6px 14px;border-radius:999px;font-size:13px;font-weight:700}
+.hero-text h2{font-family:"Thmanyah Serif Display", serif;font-size:clamp(26px,4vw,42px);margin:12px 0 8px;line-height:1.25}
+.hero-text p{color:var(--muted);line-height:1.9;margin:0 0 16px;font-size:calc(15px * var(--font-scale))}
+.hero-actions{display:flex;gap:10px;flex-wrap:wrap}
+.tab{
+  border:1px solid var(--line);background:var(--bg2);color:var(--ink);
+  padding:12px 26px;border-radius:999px;font-family:inherit;font-weight:800;font-size:16px;cursor:pointer;transition:.2s;
+}
+.tab.active{background:linear-gradient(135deg,var(--green-deep),var(--green));color:#fff;border-color:transparent;box-shadow:0 8px 20px rgba(15,118,110,.35)}
+.hero-progress{display:flex;flex-direction:column;align-items:center;gap:12px}
+.ring-wrap{position:relative;width:170px;height:170px}
+.ring{width:100%;height:100%;transform:rotate(-90deg)}
+.ring-bg{fill:none;stroke:var(--line);stroke-width:11}
+.ring-fg{fill:none;stroke:var(--gold);stroke-width:11;stroke-linecap:round;stroke-dasharray:326.7;stroke-dashoffset:326.7;transition:stroke-dashoffset .5s}
+.ring-center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring-center strong{font-size:28px;font-family:"Thmanyah Serif Display",serif}
+.ring-center span{color:var(--muted);font-size:13px}
+.ghost-btn{border:1px dashed var(--gold);background:transparent;color:var(--gold);border-radius:999px;padding:9px 20px;font-family:inherit;font-weight:700;cursor:pointer}
+.ghost-btn:hover{background:color-mix(in srgb, var(--gold) 12%, transparent)}
+.search-row{display:flex;align-items:center;gap:12px;margin:22px 0 14px}
+#search{
+  flex:1;border:1px solid var(--line);background:var(--card);color:var(--ink);
+  border-radius:14px;padding:13px 16px;font-family:inherit;font-size:15px;outline:none;
+}
+#search:focus{border-color:var(--gold)}
+#totalLabel{color:var(--muted);font-size:14px;white-space:nowrap}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:16px;padding-bottom:10px}
+.card{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:20px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:12px;
+  position:relative;transition:.25s;
+}
+.card.done{opacity:.75;border-color:color-mix(in srgb, var(--green) 55%, var(--line))}
+.card.done .dhikr-text{text-decoration:line-through;text-decoration-color:color-mix(in srgb, var(--green) 60%, transparent);text-decoration-thickness:2px}
+.card-top{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.card-num{background:linear-gradient(135deg,var(--gold2),var(--gold));color:#231a05;font-weight:900;font-size:13px;border-radius:999px;padding:4px 12px}
+.repeat-pill{font-size:13px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:4px 12px;background:var(--bg2)}
+.dhikr-title{font-family:"Thmanyah Serif Display",serif;font-size:19px;margin:0}
+.dhikr-text{font-family:"Thmanyah Serif Text", serif;line-height:2.15;font-size:calc(17.5px * var(--font-scale));margin:0;color:var(--ink)}
+.virtue{background:color-mix(in srgb, var(--green) 9%, transparent);border:1px solid color-mix(in srgb, var(--green) 25%, transparent);border-radius:12px;padding:10px 12px;font-size:calc(13.5px * var(--font-scale));line-height:1.9;color:var(--ink)}
+.source{display:flex;gap:8px;align-items:flex-start;font-size:13px;color:var(--muted);line-height:1.9;border-top:1px dashed var(--line);padding-top:10px}
+.source b{color:var(--gold);white-space:nowrap}
+.counter-row{display:flex;align-items:center;gap:12px;margin-top:auto}
+.counter-btn{
+  flex:1;border:none;cursor:pointer;border-radius:16px;padding:14px;
+  font-family:inherit;font-size:18px;font-weight:900;color:#fff;
+  background:linear-gradient(135deg,var(--green-deep),var(--green));
+  display:flex;align-items:center;justify-content:center;gap:10px;transition:.15s;
+}
+.counter-btn:active{transform:scale(.97)}
+.counter-btn:disabled{opacity:.5;cursor:default;background:color-mix(in srgb, var(--green) 60%, gray)}
+.count-bubble{min-width:64px;height:56px;border-radius:16px;display:grid;place-items:center;font-size:22px;font-weight:900;border:2px solid var(--gold);color:var(--gold);background:color-mix(in srgb, var(--gold) 10%, transparent);cursor:pointer}
+.reset-one{border:1px solid var(--line);background:var(--bg2);color:var(--muted);border-radius:12px;padding:10px 12px;cursor:pointer;font-family:inherit}
+.sources-note{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:20px;margin:24px 0 30px;line-height:2;color:var(--muted);font-size:14.5px}
+.sources-note h3{margin:0 0 8px;color:var(--ink);font-family:"Thmanyah Serif Display",serif}
+footer{border-top:1px solid var(--line);padding:18px 0 28px;color:var(--muted);font-size:13.5px}
+.footer-inner{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+@media(max-width:760px){.hero-card{grid-template-columns:1fr}.ring-wrap{width:150px;height:150px}}
