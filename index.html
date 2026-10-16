@@ -5,6 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>أذكاري | أذكار الصباح والمساء</title>
 <meta name="description" content="موقع أذكار الصباح والمساء الصحيحة بمصادرها، مع مسبحة إلكترونية وتحكم بحجم الخط والوضع الليلي." />
+<link rel="manifest" href="manifest.webmanifest" />
+<meta name="theme-color" content="#0b4f4a" />
+<link rel="icon" type="image/svg+xml" href="icons/favicon.svg" />
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="أذكاري" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@dawod/thmanyah-font-web/index.css" />
 <link rel="stylesheet" href="styles.css" />
 </head>
@@ -163,6 +171,8 @@
 <footer>
   <div class="container footer-inner">
     <span>صُنع بحب لذكر الله — تقبّل الله منا ومنكم</span>
+    <span id="connStatus" class="conn" role="status"></span>
+    <button id="installBtn" class="ghost-btn" hidden>📲 ثبّت التطبيق</button>
     <span class="font-credit">الخط: ثمانية — Thmanyah</span>
   </div>
 </footer>

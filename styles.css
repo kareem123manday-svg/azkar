@@ -141,7 +141,8 @@ body{
 .sources-note{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:20px;margin:24px 0 30px;line-height:2;color:var(--muted);font-size:14.5px}
 .sources-note h3{margin:0 0 8px;color:var(--ink);font-family:"Thmanyah Serif Display",serif}
 footer{border-top:1px solid var(--line);padding:18px 0 28px;color:var(--muted);font-size:13.5px}
-.footer-inner{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.footer-inner{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.conn.offline{background:color-mix(in srgb, var(--gold) 16%, transparent);border:1px solid var(--gold);color:var(--gold);border-radius:999px;padding:6px 14px;font-size:13px;font-weight:700}
 @media(max-width:760px){.hero-card{grid-template-columns:1fr}.ring-wrap{width:150px;height:150px}}
 
 /* --- صفحة الأسئلة الشائعة --- */

@@ -198,5 +198,43 @@ document.getElementById("fontIncrease").addEventListener("click", ()=>{ state.fo
 document.getElementById("fontDecrease").addEventListener("click", ()=>{ state.fontScale=Math.max(0.8, +(state.fontScale-0.1).toFixed(2)); render(); });
 document.getElementById("themeToggle").addEventListener("click", ()=>{ state.theme = state.theme==="light"?"dark":"light"; render(); });
 
+// --- PWA: تسجيل Service Worker للعمل دون إنترنت ---
+if("serviceWorker" in navigator){
+  window.addEventListener("load", ()=>{
+    navigator.serviceWorker.register("sw.js").catch(()=>{});
+  });
+}
+
+// --- PWA: زر تثبيت التطبيق ---
+let deferredPrompt = null;
+window.addEventListener("beforeinstallprompt", (e)=>{
+  e.preventDefault();
+  deferredPrompt = e;
+  const b = document.getElementById("installBtn");
+  if(b) b.hidden = false;
+});
+const installBtn = document.getElementById("installBtn");
+if(installBtn) installBtn.addEventListener("click", ()=>{
+  if(!deferredPrompt) return;
+  deferredPrompt.prompt();
+  deferredPrompt.userChoice.then(()=>{ deferredPrompt = null; installBtn.hidden = true; });
+});
+window.addEventListener("appinstalled", ()=>{
+  const b = document.getElementById("installBtn");
+  if(b) b.hidden = true;
+});
+
+// --- حالة الاتصال: تنبيه عند انقطاع الإنترنت ---
+function updateConn(){
+  const el = document.getElementById("connStatus");
+  if(!el) return;
+  const off = !navigator.onLine;
+  el.textContent = off ? "📴 بدون إنترنت — الأذكار المحفوظة تعمل" : "";
+  el.classList.toggle("offline", off);
+}
+window.addEventListener("online", updateConn);
+window.addEventListener("offline", updateConn);
+updateConn();
+
 loadPrefs();
 render();
