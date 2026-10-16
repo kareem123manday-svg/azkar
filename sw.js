@@ -1,5 +1,5 @@
 /* أذكاري — Service Worker: تشغيل الموقع دون إنترنت */
-const CACHE = "azkar-v1";
+const CACHE = "azkar-v2";
 const ASSETS = [
   "./",
   "./index.html",
