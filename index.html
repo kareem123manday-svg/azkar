@@ -50,6 +50,7 @@
       <div class="hero-actions">
         <button class="tab active" data-tab="morning">أذكار الصباح</button>
         <button class="tab" data-tab="evening">أذكار المساء</button>
+        <button class="tab install-btn">📲 حمّل التطبيق</button>
       </div>
     </div>
     <div class="hero-progress">
@@ -168,11 +169,21 @@
   </div><!-- /azkarPage -->
 </main>
 
+<dialog id="installHelp" class="install-dialog" aria-label="طريقة تحميل التطبيق">
+  <h3>📲 تحميل تطبيق أذكاري على هاتفك</h3>
+  <ol>
+    <li><strong>أندرويد (كروم):</strong> افتح قائمة النقاط ⋮ ثم اختر «تثبيت التطبيق» أو «إضافة إلى الشاشة الرئيسية».</li>
+    <li><strong>آيفون (سفاري):</strong> اضغط زر المشاركة ثم اختر «إضافة إلى الشاشة الرئيسية».</li>
+    <li>افتح الموقع مرة واحدة بالإنترنت أولاً ليُحفظ على جهازك، ثم يعمل كاملاً دون إنترنت.</li>
+  </ol>
+  <button class="counter-btn" id="installHelpClose">فهمت ✓</button>
+</dialog>
+
 <footer>
   <div class="container footer-inner">
     <span>صُنع بحب لذكر الله — تقبّل الله منا ومنكم</span>
     <span id="connStatus" class="conn" role="status"></span>
-    <button id="installBtn" class="ghost-btn" hidden>📲 ثبّت التطبيق</button>
+    <button class="ghost-btn install-btn">📲 حمّل التطبيق</button>
     <span class="font-credit">الخط: ثمانية — Thmanyah</span>
   </div>
 </footer>

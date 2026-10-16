@@ -143,6 +143,12 @@ body{
 footer{border-top:1px solid var(--line);padding:18px 0 28px;color:var(--muted);font-size:13.5px}
 .footer-inner{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
 .conn.offline{background:color-mix(in srgb, var(--gold) 16%, transparent);border:1px solid var(--gold);color:var(--gold);border-radius:999px;padding:6px 14px;font-size:13px;font-weight:700}
+.install-btn{border-color:var(--gold)!important;color:var(--gold)!important}
+.install-dialog{border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:20px;padding:24px;max-width:440px;width:calc(100% - 36px);font-family:inherit;box-shadow:var(--shadow)}
+.install-dialog::backdrop{background:rgba(0,0,0,.5);backdrop-filter:blur(3px)}
+.install-dialog h3{margin:0 0 12px;font-family:"Thmanyah Serif Display",serif}
+.install-dialog ol{margin:0 0 16px;padding-right:20px;line-height:2;font-size:14.5px}
+.install-dialog .counter-btn{width:100%;border:none;cursor:pointer}
 @media(max-width:760px){.hero-card{grid-template-columns:1fr}.ring-wrap{width:150px;height:150px}}
 
 /* --- صفحة الأسئلة الشائعة --- */

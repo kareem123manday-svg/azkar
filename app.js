@@ -205,23 +205,30 @@ if("serviceWorker" in navigator){
   });
 }
 
-// --- PWA: زر تثبيت التطبيق ---
+// --- PWA: زر تحميل التطبيق ---
 let deferredPrompt = null;
+const installBtns = document.querySelectorAll(".install-btn");
+function hideInstallBtns(){ installBtns.forEach((b)=>{ b.hidden = true; }); }
+// إخفاء الزر إذا كان التطبيق مثبتاً ويعمل مستقلاً
+if(window.matchMedia("(display-mode: standalone)").matches || navigator.standalone === true) hideInstallBtns();
 window.addEventListener("beforeinstallprompt", (e)=>{
   e.preventDefault();
   deferredPrompt = e;
-  const b = document.getElementById("installBtn");
-  if(b) b.hidden = false;
 });
-const installBtn = document.getElementById("installBtn");
-if(installBtn) installBtn.addEventListener("click", ()=>{
-  if(!deferredPrompt) return;
-  deferredPrompt.prompt();
-  deferredPrompt.userChoice.then(()=>{ deferredPrompt = null; installBtn.hidden = true; });
-});
-window.addEventListener("appinstalled", ()=>{
-  const b = document.getElementById("installBtn");
-  if(b) b.hidden = true;
+installBtns.forEach((b)=>b.addEventListener("click", ()=>{
+  if(deferredPrompt){
+    deferredPrompt.prompt();
+    deferredPrompt.userChoice.then(()=>{ deferredPrompt = null; });
+    return;
+  }
+  const dlg = document.getElementById("installHelp");
+  if(dlg && dlg.showModal) dlg.showModal();
+}));
+window.addEventListener("appinstalled", ()=>{ deferredPrompt = null; hideInstallBtns(); });
+const installHelpClose = document.getElementById("installHelpClose");
+if(installHelpClose) installHelpClose.addEventListener("click", ()=>{
+  const dlg = document.getElementById("installHelp");
+  if(dlg) dlg.close();
 });
 
 // --- حالة الاتصال: تنبيه عند انقطاع الإنترنت ---
