@@ -222,7 +222,14 @@ installBtns.forEach((b)=>b.addEventListener("click", ()=>{
     return;
   }
   const dlg = document.getElementById("installHelp");
-  if(dlg && dlg.showModal) dlg.showModal();
+  if(dlg){
+    try{
+      if(dlg.showModal) dlg.showModal();
+      else dlg.setAttribute("open", "");
+    }catch(_){
+      dlg.setAttribute("open", "");
+    }
+  }
 }));
 window.addEventListener("appinstalled", ()=>{ deferredPrompt = null; hideInstallBtns(); });
 const installHelpClose = document.getElementById("installHelpClose");

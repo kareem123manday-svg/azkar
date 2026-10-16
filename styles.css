@@ -142,6 +142,7 @@ body{
 .sources-note h3{margin:0 0 8px;color:var(--ink);font-family:"Thmanyah Serif Display",serif}
 footer{border-top:1px solid var(--line);padding:18px 0 28px;color:var(--muted);font-size:13.5px}
 .footer-inner{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.ver{color:var(--muted);font-size:12px;border:1px solid var(--line);border-radius:999px;padding:2px 10px}
 .conn.offline{background:color-mix(in srgb, var(--gold) 16%, transparent);border:1px solid var(--gold);color:var(--gold);border-radius:999px;padding:6px 14px;font-size:13px;font-weight:700}
 .install-btn{border-color:var(--gold)!important;color:var(--gold)!important}
 .install-dialog{border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:20px;padding:24px;max-width:440px;width:calc(100% - 36px);font-family:inherit;box-shadow:var(--shadow)}
